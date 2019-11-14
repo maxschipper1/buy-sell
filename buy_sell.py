@@ -37,9 +37,9 @@ def sell(item_to_sell):
     return local_money
 
 print("Vill du: Logga in/Registrera ")
-choice = input()
+choice = input().lower()
 
-if choice == "Logga in".lower() or choice == "Logga in":
+if choice == "logga in":
     username = input("Skriv ditt användar namn: ")
     for a in users:
         if username == a[0]:
@@ -101,7 +101,7 @@ if choice == "Logga in".lower() or choice == "Logga in":
             else:
                 print("Fel lösenord")
         
-elif choice == "Registrera".lower() or choice == "Registrera":
+elif choice == "registrera":
     new_user = input("Skriv in nytt användarnamn: ")
     for a in users:
         if new_user == a[0].lower():
@@ -112,6 +112,5 @@ elif choice == "Registrera".lower() or choice == "Registrera":
         newpass = input("Skriv in nytt lösenord: ")
         curs.execute("INSERT INTO users_tb (user, password, money, diamond, gold, iron, stone, wood) VALUES ('{}','{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(new_user, newpass, default_money, 0, 0, 0, 0, 0))
 
-print ("hej")
 users_db.commit()
 users_db.close()   
